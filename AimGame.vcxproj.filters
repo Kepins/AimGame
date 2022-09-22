@@ -22,6 +22,12 @@
     <Filter Include="Pliki źródłowe\Drawable">
       <UniqueIdentifier>{67c24311-02c4-48ea-af9f-ed95dcc5f17e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Light">
+      <UniqueIdentifier>{5a882a8e-2aa2-46ac-90d6-7b8e4b3bf8c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\Light">
+      <UniqueIdentifier>{0ffc155c-5265-43a3-b2b4-692d98f8ed77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -42,14 +48,17 @@
     <ClCompile Include="ShaderProgram.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="Drawable.cpp">
       <Filter>Pliki źródłowe\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Pliki źródłowe\Drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Pliki źródłowe\Light</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,14 +74,17 @@
     <ClInclude Include="ShaderProgram.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Drawable.h">
       <Filter>Pliki nagłówkowe\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Pliki nagłówkowe\Drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Pliki nagłówkowe\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,31 +2,57 @@
 
 // Vertices coordinates
 GLfloat Cube::vertices[] = { 
-  //     COORDINATES      /        COLORS       //
-	 1.0f,  1.0f,  1.0f,     0.0f, 0.0f, 0.0f,
-	 1.0f,  1.0f, -1.0f,     0.0f, 0.0f, 1.0f,
-	 1.0f, -1.0f,  1.0f,     0.0f, 1.0f, 0.0f,
-	 1.0f, -1.0f, -1.0f,     0.0f, 1.0f, 1.0f,
-	-1.0f,  1.0f,  1.0f,     1.0f, 0.0f, 0.0f,
-	-1.0f,  1.0f, -1.0f,     1.0f, 0.0f, 1.0f,
-	-1.0f, -1.0f,  1.0f,     1.0f, 1.0f, 0.0f,
-	-1.0f, -1.0f, -1.0f,     1.0f, 1.0f, 1.0f,
+  //     COORDINATES       /        COLORS       /       NORMALS     //
+	  1.0f,  1.0f,  1.0f,     0.0f, 0.0f, 0.0f,     1.0f, 0.0f, 0.0f,
+	  1.0f,  1.0f, -1.0f,     0.0f, 0.0f, 1.0f,     1.0f, 0.0f, 0.0f,
+	  1.0f, -1.0f,  1.0f,     0.0f, 1.0f, 0.0f,     1.0f, 0.0f, 0.0f,
+	  1.0f, -1.0f, -1.0f,     0.0f, 1.0f, 1.0f,     1.0f, 0.0f, 0.0f,
+
+	  1.0f,  1.0f,  1.0f,     0.0f, 0.0f, 0.0f,     0.0f, 1.0f, 0.0f,
+	  1.0f,  1.0f, -1.0f,     0.0f, 0.0f, 1.0f,     0.0f, 1.0f, 0.0f,
+	 -1.0f,  1.0f,  1.0f,     1.0f, 0.0f, 0.0f,     0.0f, 1.0f, 0.0f,
+	 -1.0f,  1.0f, -1.0f,     1.0f, 0.0f, 1.0f,     0.0f, 1.0f, 0.0f,
+
+	  1.0f,  1.0f,  1.0f,     0.0f, 0.0f, 0.0f,     0.0f, 0.0f, 1.0f,
+	  1.0f, -1.0f,  1.0f,     0.0f, 1.0f, 0.0f,     0.0f, 0.0f, 1.0f,
+	 -1.0f,  1.0f,  1.0f,     1.0f, 0.0f, 0.0f,     0.0f, 0.0f, 1.0f,
+	 -1.0f, -1.0f,  1.0f,     1.0f, 1.0f, 0.0f,     0.0f, 0.0f, 1.0f,
+
+	 -1.0f,  1.0f,  1.0f,     1.0f, 0.0f, 0.0f,     -1.0f, 0.0f, 0.0f,
+	 -1.0f,  1.0f, -1.0f,     1.0f, 0.0f, 1.0f,     -1.0f, 0.0f, 0.0f,
+	 -1.0f, -1.0f,  1.0f,     1.0f, 1.0f, 0.0f,     -1.0f, 0.0f, 0.0f,
+	 -1.0f, -1.0f, -1.0f,     1.0f, 1.0f, 1.0f,     -1.0f, 0.0f, 0.0f,
+	
+	  1.0f, -1.0f,  1.0f,     0.0f, 1.0f, 0.0f,     0.0f, -1.0f, 0.0f,
+	  1.0f, -1.0f, -1.0f,     0.0f, 1.0f, 1.0f,     0.0f, -1.0f, 0.0f,
+	 -1.0f, -1.0f,  1.0f,     1.0f, 1.0f, 0.0f,     0.0f, -1.0f, 0.0f,
+	 -1.0f, -1.0f, -1.0f,     1.0f, 1.0f, 1.0f,     0.0f, -1.0f, 0.0f,
+
+	  1.0f,  1.0f, -1.0f,     0.0f, 0.0f, 1.0f,     0.0f, 0.0f, -1.0f,
+	  1.0f, -1.0f, -1.0f,     0.0f, 1.0f, 1.0f,     0.0f, 0.0f, -1.0f,
+	 -1.0f,  1.0f, -1.0f,     1.0f, 0.0f, 1.0f,     0.0f, 0.0f, -1.0f,
+	 -1.0f, -1.0f, -1.0f,     1.0f, 1.0f, 1.0f,     0.0f, 0.0f, -1.0f,
 };
 
 // Indices for vertices order
 GLuint Cube::indices[] = {
 	0, 1, 2,
 	1, 2, 3,
-	0, 1, 5,
-	0, 4, 5,
-	0, 2, 4,
-	2, 4, 6,
-	1, 3, 5,
-	3, 5, 7,
-	2, 3, 6,
-	3, 6, 7,
+
 	4, 5, 6,
-	5, 6, 7
+	5, 6, 7,
+
+	8, 9, 10,
+	9, 10, 11,
+
+	12, 13, 14,
+	13, 14, 15,
+
+	16, 17, 18,
+	17, 18, 19,
+
+	20, 21, 22,
+	21, 22, 23
 };
 
 
@@ -40,8 +66,9 @@ Cube::Cube(glm::vec3 position, float scale, Shader& shader)
 	ebo = EBO(indices, sizeof(indices));
 	num_triangles = sizeof(indices) / sizeof(GLuint) / 3;
 
-	vao.LinkAttrib(vbo, 0, 3, GL_FLOAT, 6 * sizeof(GLfloat), (void*)0);
-	vao.LinkAttrib(vbo, 1, 3, GL_FLOAT, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+	vao.LinkAttrib(vbo, 0, 3, GL_FLOAT, 9 * sizeof(GLfloat), (void*)0);
+	vao.LinkAttrib(vbo, 1, 3, GL_FLOAT, 9 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+	vao.LinkAttrib(vbo, 2, 3, GL_FLOAT, 9 * sizeof(GLfloat), (void*)(6 * sizeof(GLfloat)));
 
 	vao.Unbind();
 	vbo.Unbind();

@@ -23,6 +23,7 @@ void Drawable::Draw() {
 	shader.Activate();
 
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "objMatrix"), 1, GL_FALSE, glm::value_ptr(transformMat));
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "rotateNormalMatrix"), 1, GL_FALSE, glm::value_ptr(rotateMat));
 	vao.Bind();
 
 	glDrawElements(GL_TRIANGLES, num_triangles * 3, GL_UNSIGNED_INT, 0);

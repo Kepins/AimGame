@@ -5,6 +5,7 @@
 #include "ShaderProgram.h"
 #include "Cube.h"
 #include "Camera.h"
+#include "Light.h"
 
 const int WINDOW_WIDTH = 1280;
 const int WINDOW_HEIGHT = 720;
@@ -45,6 +46,7 @@ int main() {
 	
 	// Initialize objetcs that will be used
 	Camera camera(WINDOW_WIDTH, WINDOW_HEIGHT, glm::vec3(0.0f, 0.0f, 1.5f));
+	Light light(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), glm::vec3(1.5f, 2.0f, 0.0f));
 	Cube cube(glm::vec3(0.0f,0.0f,-5.0f), 1.0f ,defShaderProg);
 
 
@@ -69,6 +71,7 @@ int main() {
 		camera.Inputs(window);
 		defShaderProg.Activate();
 		camera.Matrix(FOV, 0.1f, 100.0f, defShaderProg, "camMatrix");
+		light.ExportUniforms(defShaderProg, "lightColor", "lightPos");
 		cube.Draw();
 
 		// Swap the back buffer with the front buffer
