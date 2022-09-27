@@ -51,8 +51,6 @@ protected:
 
 
 public:
-	void initStatic();
-
 	Drawable(glm::vec3 position, float scale, float rot_X, float rot_Y, float rot_Z, Shader& shader);
 
 	// Handles what should be done in delta time

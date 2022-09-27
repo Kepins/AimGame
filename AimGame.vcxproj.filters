@@ -60,6 +60,9 @@
     <ClCompile Include="Light.cpp">
       <Filter>Pliki źródłowe\Light</Filter>
     </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Pliki źródłowe\Drawable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VAO.h">
@@ -86,12 +89,21 @@
     <ClInclude Include="Light.h">
       <Filter>Pliki nagłówkowe\Light</Filter>
     </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Pliki nagłówkowe\Drawable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
       <Filter>Pliki zasobów\Shaders</Filter>
     </None>
     <None Include="default.frag">
+      <Filter>Pliki zasobów\Shaders</Filter>
+    </None>
+    <None Include="uni_color.frag">
+      <Filter>Pliki zasobów\Shaders</Filter>
+    </None>
+    <None Include="uni_color.vert">
       <Filter>Pliki zasobów\Shaders</Filter>
     </None>
   </ItemGroup>

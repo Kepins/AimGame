@@ -4,6 +4,7 @@
 
 #include "ShaderProgram.h"
 #include "Cube.h"
+#include "Sphere.h"
 #include "Camera.h"
 #include "Light.h"
 
@@ -42,13 +43,16 @@ int main() {
 	glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	// Generates Shader object using shaders defualt.vert and default.frag
-	Shader defShaderProg("default.vert", "default.frag");
+	Shader uniColorShaderProg("uni_color.vert", "uni_color.frag");
 	
-	// Initialize objetcs that will be used
-	Camera camera(WINDOW_WIDTH, WINDOW_HEIGHT, glm::vec3(0.0f, 0.0f, 1.5f));
-	Light light(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), glm::vec3(1.5f, 2.0f, 0.0f));
-	Cube cube(glm::vec3(0.0f,0.0f,-5.0f), 1.0f ,defShaderProg);
+	// Initialize static fields in drawable objects
+	Sphere::initStatic(36, 18);
 
+
+	// Initialize objetcs that will be used
+	Camera camera(WINDOW_WIDTH, WINDOW_HEIGHT, glm::vec3(0.0f, 0.0f, 0.0f));
+	Light light(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 2.0f, -1.0f));
+	Sphere sphere(glm::vec3(0.0f, 0.0f, -5.0f), 1.0f, glm::vec3(0.5f, 0.5f, 0.5f), uniColorShaderProg);
 
 	// Enables the Depth Buffer
 	glEnable(GL_DEPTH_TEST);
@@ -66,13 +70,13 @@ int main() {
 		double dt = currTime - prevTime;
 		prevTime = currTime;
 
-		cube.HandleTime(dt);
+		sphere.HandleTime(dt);
 
 		camera.Inputs(window);
-		defShaderProg.Activate();
-		camera.Matrix(FOV, 0.1f, 100.0f, defShaderProg, "camMatrix");
-		light.ExportUniforms(defShaderProg, "lightColor", "lightPos");
-		cube.Draw();
+		uniColorShaderProg.Activate();
+		camera.Matrix(FOV, 0.1f, 100.0f, uniColorShaderProg, "camMatrix");
+		light.ExportUniforms(uniColorShaderProg, "lightColor", "lightPos");
+		sphere.Draw();
 
 		// Swap the back buffer with the front buffer
 		glfwSwapBuffers(window);
@@ -81,9 +85,11 @@ int main() {
 	}
 
 
+	// Delete all the shaders that were created
+	uniColorShaderProg.Delete();
+
 	// Delete all the objects that were created
-	defShaderProg.Delete();
-	cube.Delete();
+	sphere.Delete();
 
 	// Delete window before ending the program
 	glfwDestroyWindow(window);
