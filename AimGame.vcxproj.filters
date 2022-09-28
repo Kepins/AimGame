@@ -28,6 +28,12 @@
     <Filter Include="Pliki źródłowe\Light">
       <UniqueIdentifier>{0ffc155c-5265-43a3-b2b4-692d98f8ed77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\Hud">
+      <UniqueIdentifier>{e9a957fe-5db1-4912-8862-9cd4b5d1adb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Hud">
+      <UniqueIdentifier>{aac71b10-9848-4102-9960-dd9ea9087498}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,6 +69,9 @@
     <ClCompile Include="Sphere.cpp">
       <Filter>Pliki źródłowe\Drawable</Filter>
     </ClCompile>
+    <ClCompile Include="Crosshair.cpp">
+      <Filter>Pliki źródłowe\Hud</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VAO.h">
@@ -92,6 +101,9 @@
     <ClInclude Include="Sphere.h">
       <Filter>Pliki nagłówkowe\Drawable</Filter>
     </ClInclude>
+    <ClInclude Include="Crosshair.h">
+      <Filter>Pliki nagłówkowe\Hud</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
@@ -104,6 +116,12 @@
       <Filter>Pliki zasobów\Shaders</Filter>
     </None>
     <None Include="uni_color.vert">
+      <Filter>Pliki zasobów\Shaders</Filter>
+    </None>
+    <None Include="hud.frag">
+      <Filter>Pliki zasobów\Shaders</Filter>
+    </None>
+    <None Include="hud.vert">
       <Filter>Pliki zasobów\Shaders</Filter>
     </None>
   </ItemGroup>

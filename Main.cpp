@@ -5,6 +5,7 @@
 #include "ShaderProgram.h"
 #include "Cube.h"
 #include "Sphere.h"
+#include "Crosshair.h"
 #include "Camera.h"
 #include "Light.h"
 
@@ -44,15 +45,17 @@ int main() {
 
 	// Generates Shader object using shaders defualt.vert and default.frag
 	Shader uniColorShaderProg("uni_color.vert", "uni_color.frag");
-	
+	Shader hudShaderProg("hud.vert", "hud.frag");
+
 	// Initialize static fields in drawable objects
 	Sphere::initStatic(36, 18);
-
+	Crosshair::initStatic(0.008f, 0.02f, 0.005f);
 
 	// Initialize objetcs that will be used
 	Camera camera(WINDOW_WIDTH, WINDOW_HEIGHT, glm::vec3(0.0f, 0.0f, 0.0f));
 	Light light(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 2.0f, -1.0f));
 	Sphere sphere(glm::vec3(0.0f, 0.0f, -5.0f), 1.0f, glm::vec3(0.5f, 0.5f, 0.5f), uniColorShaderProg);
+	Crosshair crosshair(hudShaderProg);
 
 	// Enables the Depth Buffer
 	glEnable(GL_DEPTH_TEST);
@@ -76,7 +79,15 @@ int main() {
 		uniColorShaderProg.Activate();
 		camera.Matrix(FOV, 0.1f, 100.0f, uniColorShaderProg, "camMatrix");
 		light.ExportUniforms(uniColorShaderProg, "lightColor", "lightPos");
+
+		hudShaderProg.Activate();
+		camera.OrthoMatrix(hudShaderProg, "orthoMatrix");
+
+		// 3D objects
 		sphere.Draw();
+
+		// Hud elements
+		crosshair.Draw();
 
 		// Swap the back buffer with the front buffer
 		glfwSwapBuffers(window);
@@ -87,9 +98,11 @@ int main() {
 
 	// Delete all the shaders that were created
 	uniColorShaderProg.Delete();
+	hudShaderProg.Delete();
 
 	// Delete all the objects that were created
 	sphere.Delete();
+	crosshair.Delete();
 
 	// Delete window before ending the program
 	glfwDestroyWindow(window);

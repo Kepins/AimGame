@@ -26,6 +26,14 @@ void Camera::Matrix(float FOVdeg, float nearPlane, float farPlane, Shader& shade
 	glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform), 1, GL_FALSE, glm::value_ptr(projection * view));
 }
 
+// Updates and exports the ortho matrix to the Vertex Shader
+void Camera::OrthoMatrix(Shader& shader, const char* uniform) {
+	// Ortho perspective
+	float ratio = float(width) / height;
+	glm::mat4 ortho = glm::ortho(-ratio, ratio, -1.0f, 1.0f);
+	// Exports the camera matrix to the Vertex Shader
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform), 1, GL_FALSE, glm::value_ptr(ortho));
+}
 
 
 void Camera::Inputs(GLFWwindow* window)
